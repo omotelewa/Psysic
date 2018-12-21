@@ -34,59 +34,48 @@ var loss = document.getElementById("losses");
 var guessesLeft = document.getElementById("guessesLeft");
 var guessSoFar = document.getElementById("guessSoFar");
 
-var winGame;
-var looseGame;
-var guessesLeftGame;
+var winGame = 0;
+var looseGame = 0;
+var guessesLeftGame = 9;
 var guessesLeftSoFar;
 
-newGame();
+resetGame();
 document.onkeyup = function(event){
   keySelect(event); 
   };
 
-function newGame() {
-
-  winGame = 0;
-  win.innerHTML = winGame;
-  looseGame = 0;
-  loss.innerHTML = looseGame;
-
-  newLetter();
-
-}
-
 function keySelect(event) {
   var x = event.charCode || event.keyCode;
-  var y = String.fromCharCode(x);
-
+  var y = String.fromCharCode(x).toLowerCase();
   if (y !== answer) {
     guessesLeftGame--;
-    guessesLeft.innerHTML = "guesses left: " + guessesLeftGame;
+    guessesLeft.textContent = guessesLeftGame;
     guessesLeftSoFar.push(y);
-    guessesSoFar.innerHTML = "guesses so far: " + guessesLeftSoFar;
+    guessesSoFar.textContent = guessesLeftSoFar;
 
   }
 
   if (y === answer) {
     winGame++;
-    win.innerHTML = "wins: " + winGame;
-    newLetter();
+    win.textContent = winGame;
+    resetGame();
   }
 
   if (guessesLeftGame === 0) {
     looseGame++;
-    loss.innerHTML = "losses: " + looseGame;
-    newLetter();
+    loss.textContent = looseGame;
+    resetGame();
   }
 
 }
 
-function newLetter() {
+function resetGame() {
   guessesLeftGame = 9;
-  guessesLeft.innerHTML = guessesLeftGame;
+  guessesLeft.textContent = guessesLeftGame;
   guessesLeftSoFar = [];
-  guessesSoFar.innerHTML = guessesLeftSoFar;
+  guessesSoFar.textContent = guessesLeftSoFar;
 
   let num1 = Math.floor(Math.random() * Math.floor(26));
   answer = letterKey[num1];
+  console.log("Computer Random Letter: ",answer);
 }

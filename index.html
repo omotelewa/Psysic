@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="assets/css/style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,12 +12,33 @@
 
 <body>
 
-  <h1>Psysic Game</h1>      
+  <h1>Psysic Game</h1>
 
-  <div><h2>Wins: <span id="wins"></span></h2></div>
-  <div><h2>Losses: <span id="losses"></span></h2></div>
-  <div><h2>Guesses Left: <span id="guessLeft"></span></h2></div>
-  <div><h2>Guesses So Far: <span id="guessesSoFar"></span></h2></div>
+  <div class="row">
+      <div class="column" style="background-color:#aaa;">
+          <h2>Wins: <span id="wins">0</span></h2>
+        <p>You are a Winner!</p>
+      </div>
+      <div class="column" style="background-color:#aac;">
+          <h2>Losses: <span id="losses">0</span></h2>
+        <p>You Lose Better Luck Next Time!</p>
+      </div>
+      <div class="column" style="background-color:#ffbb;">
+          <h2<div>
+            <h2>Guesses Left:
+                  <span id="guessesLeft">9</span></h2>
+          <p>You have quite a few Guesses Left, Keep Guessing!</p>
+        </div>
+      <div class="column" style="background-color:#bbb;">
+        <h2<div>
+            <h2>Guesses So Far:
+                <span id="guessesSoFar"></span></h2>
+        <p>Your Guesses Already Made!!</p>
+      </div>
+    </div>
+
+  </div>
+  </div>
 
   <script src="assets/javascript/game.js"></script>
 </body>
